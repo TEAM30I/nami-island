@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Noto Sans KR', 'sans-serif'],
+				serif: ['Playfair Display', 'serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -51,6 +55,13 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				wellness: {
+					dark: '#333333',
+					light: '#FFFFFF',
+					beige: '#E2D1C3',
+					green: '#8B9A72',
+					accent: '#A05B53'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
