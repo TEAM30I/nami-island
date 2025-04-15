@@ -1,0 +1,10 @@
+User-agent: Googlebot
+Disallow:
+
+User-agent: bingbot
+Disallow:
+
+User-agent: Yeti
+Disallow:
+
+Sitemap: https://nami.bodhis.kr/sitemap.xml
