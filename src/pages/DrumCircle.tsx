@@ -1,5 +1,7 @@
 
 import { useLanguage } from "@/context/LanguageContext";
+import ko_image from "../../public/3/ko.png";
+import en_image from "../../public/3/en.png";
 
 const DrumCircle = () => {
   const { language } = useLanguage();
@@ -7,7 +9,7 @@ const DrumCircle = () => {
   return (
     <div className="pt-20 min-h-screen flex items-center justify-center">
       <img 
-        src={language === 'ko' ? "/lovable-uploads/aa7df7b8-876c-4ff6-a9a7-f4cd06c924f7.png" : "/lovable-uploads/aa7df7b8-876c-4ff6-a9a7-f4cd06c924f7.png"} 
+        src={language === 'ko' ? ko_image : en_image} 
         alt={language === 'ko' ? "드럼서클" : "Drum Circle"} 
         className="max-w-full h-auto"
       />

@@ -1,5 +1,7 @@
 
 import { useLanguage } from "@/context/LanguageContext";
+import ko_image from "../../public/3/ko.png";
+import en_image from "../../public/3/en.png";
 
 const Yoga = () => {
   const { language } = useLanguage();
@@ -7,7 +9,7 @@ const Yoga = () => {
   return (
     <div className="pt-20 min-h-screen flex items-center justify-center">
       <img 
-        src={language === 'ko' ? "/lovable-uploads/d229f688-34af-4f34-8c69-1221f39c4cc6.png" : "/lovable-uploads/d229f688-34af-4f34-8c69-1221f39c4cc6.png"} 
+        src={language === 'ko' ? ko_image : en_image} 
         alt={language === 'ko' ? "요가" : "Yoga"} 
         className="max-w-full h-auto"
       />
