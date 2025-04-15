@@ -13,7 +13,7 @@ const Reservation = () => {
   return (
     <>
       {/* Header Section */}
-      <section className="relative py-20 mb-12">
+      <section className="relative pb-20 mb-12">
         <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 opacity-50" />
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -44,7 +44,7 @@ const Reservation = () => {
       </section>
 
       {/* Image display based on language */}
-      <section className="py-8 bg-white">
+      <section className="pb-8 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex justify-center">
             {language === 'ko' ? (

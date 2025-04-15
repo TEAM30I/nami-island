@@ -6,6 +6,13 @@ import intro_image from "../../public/1/intro.jpg";
 const Index = () => {
   const { language } = useLanguage();
   
+  // 언어 상태 확인
+  console.log("Current language:", language);
+  
+  // 언어에 따라 표시할 이미지 선택
+  const contentImage = language === 'ko' ? ko_image : en_image;
+  const imageAlt = language === 'ko' ? "웰니스 온 아일랜드" : "Wellness on Island";
+  
   return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-12">
       <div className="relative w-full flex justify-center">
@@ -31,19 +38,12 @@ const Index = () => {
       
       <div className="w-80 mx-5 border-b border-gray-300"></div>
       
-      {language === 'ko' ? (
-        <img 
-          src={1/ko.png} 
-          alt="웰니스 온 아일랜드" 
-          className="max-w-full md:max-w-1/2 md:mx-8 h-auto"
-        />
-      ) : (
-        <img 
-          src={1/en.png} 
-          alt="Wellness on Island" 
-          className="max-w-full md:max-w-1/2 md:mx-8 h-auto"
-        />
-      )}
+      {/* 언어에 따른 이미지 표시 */}
+      <img 
+        src={contentImage} 
+        alt={imageAlt} 
+        className="max-w-full md:max-w-1/2 md:mx-8 h-auto"
+      />
     </div>
   );
 };
