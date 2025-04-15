@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 홈 페이지 -->
+  <url>
+    <loc>https://nami.bodhis.kr/</loc>
+    <lastmod>2025-04-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+  
+  <!-- 예약 페이지 -->
+  <url>
+    <loc>https://nami.bodhis.kr/reservation</loc>
+    <lastmod>2025-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  
+  <!-- 사운드 테라피 페이지 -->
+  <url>
+    <loc>https://nami.bodhis.kr/sound-therapy</loc>
+    <lastmod>2025-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  
+  <!-- 요가 페이지 -->
+  <url>
+    <loc>https://nami.bodhis.kr/yoga</loc>
+    <lastmod>2025-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  
+  <!-- 아트 테라피 페이지 -->
+  <url>
+    <loc>https://nami.bodhis.kr/art-therapy</loc>
+    <lastmod>2025-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  
+  <!-- 아유르베다 페이지 -->
+  <url>
+    <loc>https://nami.bodhis.kr/ayurveda</loc>
+    <lastmod>2025-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  
+  <!-- 드럼 서클 페이지 -->
+  <url>
+    <loc>https://nami.bodhis.kr/drum-circle</loc>
+    <lastmod>2025-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+</urlset>
