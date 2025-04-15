@@ -1,10 +1,11 @@
-
 import { useLanguage } from "@/context/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import ko_image from "../../public/2/ko.png";
+import en_image from "../../public/2/en.png";
 
 const Reservation = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [selectedDay, setSelectedDay] = useState<1 | 2 | 'all'>(1);
   
   const reservationUrl = "https://naminara.net/main/page/product_detail.php?pr_cate=55&pr_idx=112";
@@ -32,7 +33,7 @@ const Reservation = () => {
                 {t('program.contact')}
               </p>
               
-              <Button size="lg" className="bg-wellness-accent hover:bg-wellness-accent/90">
+              <Button size="lg" className="bg-[#2DB400] hover:bg-[#2DB400]/90">
                 <a href={reservationUrl} target="_blank" rel="noopener noreferrer" className="text-white">
                   {t('reservation.button')} →
                 </a>

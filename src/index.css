@@ -114,9 +114,7 @@
   .wellness-gradient {
     background: linear-gradient(180deg, rgba(226,209,195,0.5) 0%, rgba(255,255,255,1) 100%);
   }
-}
-
-@layer base {
+}@layer base {
   * {
     @apply border-border;
   }
@@ -125,3 +123,4 @@
     @apply bg-background text-foreground;
   }
 }
+
