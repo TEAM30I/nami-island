@@ -43,6 +43,27 @@ const Reservation = () => {
         </div>
       </section>
 
+      {/* Image display based on language */}
+      <section className="py-8 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center">
+            {language === 'ko' ? (
+              <img 
+                src={ko_image} 
+                alt="예약 정보" 
+                className="max-w-full md:max-w-3xl h-auto"
+              />
+            ) : (
+              <img 
+                src={en_image} 
+                alt="Reservation Information" 
+                className="max-w-full md:max-w-3xl h-auto"
+              />
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* Schedule Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -253,7 +274,7 @@ const Reservation = () => {
               <p className="mb-4 text-lg">프로그램 예약을 위한 QR 코드를 스캔하세요</p>
               <div className="inline-block border-2 border-gray-200 p-4 rounded-lg">
                 <img 
-                  src="/placeholder.svg" 
+                  src="/public/7/QR.png" 
                   alt="Reservation QR Code" 
                   className="w-32 h-32"
                 />

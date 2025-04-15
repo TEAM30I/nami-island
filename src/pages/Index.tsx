@@ -16,7 +16,7 @@ const Index = () => {
         />
         <div className="absolute bottom-10 md:bottom-15 left-1/2 transform -translate-x-1/2">
           <a 
-            href="https://naver.com" 
+            href="https://naminara.net/main/page/event_list.php" 
             target="_blank" 
             rel="noopener noreferrer"
             className="bg-[#2DB400] hover:bg-[#2DB400] text-white font-bold 
@@ -31,16 +31,19 @@ const Index = () => {
       
       <div className="w-80 mx-5 border-b border-gray-300"></div>
       
-      <img 
-        src={ko_image} 
-        alt="웰니스 온 아일랜드" 
-        className="max-w-full md:max-w-1/2 md:mx-8 h-auto"
-      />
-      <img 
-        src={en_image} 
-        alt="Wellness on Island" 
-        className="max-w-full md:max-w-1/2 md:mx-8 h-auto"
-      />
+      {language === 'ko' ? (
+        <img 
+          src={1/ko.png} 
+          alt="웰니스 온 아일랜드" 
+          className="max-w-full md:max-w-1/2 md:mx-8 h-auto"
+        />
+      ) : (
+        <img 
+          src={1/en.png} 
+          alt="Wellness on Island" 
+          className="max-w-full md:max-w-1/2 md:mx-8 h-auto"
+        />
+      )}
     </div>
   );
 };
