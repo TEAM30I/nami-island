@@ -50,7 +50,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="text-lg md:text-xl font-bold text-wellness-dark hover:text-wellness-accent transition-colors font-serif">
-            Wellness on Island {language === 'ko' && <span className="ml-1">남이섬</span>}
+            Wellness on Island
           </Link>
 
           {/* Desktop Navigation */}

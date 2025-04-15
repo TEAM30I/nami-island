@@ -1,12 +1,13 @@
 
 import { useLanguage } from "@/context/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Reservation = () => {
   const { t } = useLanguage();
   const [selectedDay, setSelectedDay] = useState<1 | 2 | 'all'>(1);
+  
+  const reservationUrl = "https://naminara.net/main/page/product_detail.php?pr_cate=55&pr_idx=112";
 
   return (
     <>
@@ -32,7 +33,7 @@ const Reservation = () => {
               </p>
               
               <Button size="lg" className="bg-wellness-accent hover:bg-wellness-accent/90">
-                <a href="#" target="_blank" rel="noopener noreferrer" className="text-white">
+                <a href={reservationUrl} target="_blank" rel="noopener noreferrer" className="text-white">
                   {t('reservation.button')} →
                 </a>
               </Button>
