@@ -32,7 +32,6 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: t('nav.home'), path: '/' },
     { name: t('nav.yoga'), path: '/yoga' },
     { name: t('nav.ayurveda'), path: '/ayurveda' },
     { name: t('nav.artTherapy'), path: '/art-therapy' },
