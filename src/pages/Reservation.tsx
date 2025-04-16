@@ -11,7 +11,7 @@ const Reservation = () => {
 
   return (
     <>
-      <section className="realtive mt-20 pb-20 mb-12">
+      <section className="relative pb-20 mb-12 max-w-lg mx-auto">
         <img 
             src={qrImage} 
             alt="Reservation Header" 

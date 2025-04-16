@@ -6,7 +6,7 @@ const SoundTherapy = () => {
   const { language } = useLanguage();
   
   return (
-    <div>
+    <div className="max-w-[80%] mx-auto">
       <img 
         src={language === 'ko' ? ko_image : en_image} 
         alt={language === 'ko' ? "사운드 테라피" : "Sound Therapy"} 

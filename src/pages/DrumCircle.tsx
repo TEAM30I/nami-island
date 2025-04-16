@@ -6,7 +6,7 @@ const DrumCircle = () => {
   const { language } = useLanguage();
   
   return (
-    <div>
+    <div className="max-w-[80%] mx-auto">
       <img 
         src={language === 'ko' ? ko_image : en_image} 
         alt={language === 'ko' ? "드럼서클" : "Drum Circle"} 

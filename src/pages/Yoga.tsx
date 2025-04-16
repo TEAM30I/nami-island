@@ -6,7 +6,7 @@ const Yoga = () => {
   const { language } = useLanguage();
   
   return (
-    <div className="w-full p-0 m-0">
+    <div className="max-w-[80%] mx-auto">
       <img 
         src={language === 'ko' ? ko_image : en_image} 
         alt={language === 'ko' ? "요가" : "Yoga"} 
