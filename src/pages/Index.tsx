@@ -23,7 +23,7 @@ const Index = () => {
         />
         <div className="absolute bottom-10 md:bottom-15 left-1/2 transform -translate-x-1/2">
           <a 
-            href="https://naminara.net/main/page/event_list.php" 
+            href="https://booking.naver.com/booking/12/bizes/575861/items/6587856?area=pll&lang=ko&startDateTime=2025-05-10T00%3A00%3A00%2B09%3A00&theme=place" 
             target="_blank" 
             rel="noopener noreferrer"
             className="bg-[#2DB400] hover:bg-[#2DB400] text-white font-bold 
