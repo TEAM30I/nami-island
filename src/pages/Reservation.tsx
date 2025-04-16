@@ -26,11 +26,15 @@ const Reservation = () => {
         <link rel="canonical" href="https://nami.bodhis.kr/reservation" />
       </Helmet>
       <section className="relative pb-20 mb-12 max-w-lg mx-auto">
-        <img 
-          src={qrImage} 
-          alt="Reservation Header" 
-          className="w-full h-auto object-cover"
-        />
+      <img 
+        src={qrImage} 
+        alt={
+          language === 'ko'
+            ? "남이섬 웰니스 프로그램 예약 페이지로 연결되는 QR 코드 이미지"
+            : "QR code used to reserve wellness programs at Nami Island retreat"
+        } 
+        className="w-full h-auto object-cover"
+      />
       </section>
 
       {/* Schedule Section */}

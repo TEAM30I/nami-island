@@ -22,11 +22,15 @@ const ArtTherapy = () => {
         <link rel="canonical" href="https://nami.bodhis.kr/art-therapy" />
       </Helmet>
       <div className="max-w-[80%] mx-auto">
-        <img 
-          src={language === 'ko' ? ko_image : en_image} 
-          alt={language === 'ko' ? "아트 테라피" : "Art Therapy"} 
-          className="max-w-full h-auto"
-        />
+      <img 
+        src={language === 'ko' ? ko_image : en_image} 
+        alt={
+          language === 'ko'
+            ? "남이섬 아트 테라피 워크숍에서 그림과 색채를 통해 자기표현을 하는 참가자 모습"
+            : "Participants expressing themselves through painting and color in an art therapy workshop at Nami Island wellness retreat"
+        }
+        className="max-w-full h-auto"
+      />
       </div>
     </>
   );

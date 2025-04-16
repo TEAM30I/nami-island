@@ -22,11 +22,15 @@ const Ayurveda = () => {
         <link rel="canonical" href="https://nami.bodhis.kr/ayurveda" />
       </Helmet>
       <div className="max-w-[80%] mx-auto">
-        <img 
-          src={language === 'ko' ? ko_image : en_image} 
-          alt={language === 'ko' ? "아유르베다" : "Ayurveda"} 
-          className="max-w-full h-auto"
-        />
+      <img 
+        src={language === 'ko' ? ko_image : en_image} 
+        alt={
+          language === 'ko'
+            ? "남이섬 웰니스 아유르베다 세션에서 전통 인도 오일과 허브를 활용해 치유를 경험하는 모습"
+            : "Guests engaging in traditional Indian Ayurveda healing with oils and herbs during a wellness session on Nami Island"
+        }
+        className="max-w-full h-auto"
+      />
       </div>
     </>
   );
