@@ -1,7 +1,7 @@
 import { useLanguage } from "@/context/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import qrImage from "../../public/7/qr.png";
+import qrImage from "../../public/7/QR.png";
 
 const Reservation = () => {
   const { t, language } = useLanguage();
