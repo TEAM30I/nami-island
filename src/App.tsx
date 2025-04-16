@@ -1,3 +1,4 @@
+import React, { lazy, Suspense } from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,15 +7,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./context/LanguageContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Index from "./pages/Index";
-import Yoga from "./pages/Yoga";
-import Ayurveda from "./pages/Ayurveda";
-import ArtTherapy from "./pages/ArtTherapy";
-import SoundTherapy from "./pages/SoundTherapy";
-import DrumCircle from "./pages/DrumCircle";
-import Reservation from "./pages/Reservation";
-import NotFound from "./pages/NotFound";
-import ScrollToTop from "./components/ScrollToTop"; 
+import ScrollToTop from "./components/ScrollToTop";
+
+// Lazy load page components
+const Index = lazy(() => import("./pages/Index"));
+const Yoga = lazy(() => import("./pages/Yoga"));
+const Ayurveda = lazy(() => import("./pages/Ayurveda"));
+const ArtTherapy = lazy(() => import("./pages/ArtTherapy"));
+const SoundTherapy = lazy(() => import("./pages/SoundTherapy"));
+const DrumCircle = lazy(() => import("./pages/DrumCircle"));
+const Reservation = lazy(() => import("./pages/Reservation"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -25,19 +28,21 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <ScrollToTop /> {/* BrowserRouter 내부 최상단에 위치 */}
+          <ScrollToTop />
           <Navbar />
           <main className="pt-16 md:pt-20">
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/yoga" element={<Yoga />} />
-              <Route path="/ayurveda" element={<Ayurveda />} />
-              <Route path="/art-therapy" element={<ArtTherapy />} />
-              <Route path="/sound-therapy" element={<SoundTherapy />} />
-              <Route path="/drum-circle" element={<DrumCircle />} />
-              <Route path="/reservation" element={<Reservation />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <Suspense fallback={<div className="flex justify-center items-center h-screen"><p>Loading...</p></div>}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/yoga" element={<Yoga />} />
+                <Route path="/ayurveda" element={<Ayurveda />} />
+                <Route path="/art-therapy" element={<ArtTherapy />} />
+                <Route path="/sound-therapy" element={<SoundTherapy />} />
+                <Route path="/drum-circle" element={<DrumCircle />} />
+                <Route path="/reservation" element={<Reservation />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
           </main>
           <Footer />
         </BrowserRouter>
