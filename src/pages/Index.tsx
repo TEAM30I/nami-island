@@ -19,11 +19,11 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-12">
       <div className="relative w-full flex flex-col items-center justify-center">
-      <div className="relative w-full">
+        <div className="relative w-full max-w-6xl mx-auto">
           <img 
             src={intro_1} 
             alt="소개" 
-            className="max-w-full h-auto backdrop-blur-sm"
+            className="max-w-full h-auto mx-auto backdrop-blur-sm"
           />
           <div className="absolute bottom-10 md:bottom-15 left-1/2 transform -translate-x-1/2">
             <a 
@@ -39,31 +39,39 @@ const Index = () => {
             </a>
           </div>
         </div>
-        <img 
-          src={intro_2} 
-          alt="소개" 
-          className="max-w-full h-auto backdrop-blur-sm"
-        />
-        <img 
-          src={intro_3} 
-          alt="소개" 
-          className="max-w-full h-auto backdrop-blur-sm"
-        />
-        <img 
-          src={intro_4} 
-          alt="소개" 
-          className="max-w-full h-auto backdrop-blur-sm"
-        />
+        <div className="w-full max-w-6xl mx-auto">
+          <img 
+            src={intro_2} 
+            alt="소개" 
+            className="max-w-full h-auto mx-auto backdrop-blur-sm"
+          />
+        </div>
+        <div className="w-full max-w-6xl mx-auto">
+          <img 
+            src={intro_3} 
+            alt="소개" 
+            className="max-w-full h-auto mx-auto backdrop-blur-sm"
+          />
+        </div>
+        <div className="w-full max-w-6xl mx-auto">
+          <img 
+            src={intro_4} 
+            alt="소개" 
+            className="max-w-full h-auto mx-auto backdrop-blur-sm"
+          />
+        </div>
       </div>
       
-      <div className="w-80 mx-5 border-b border-gray-300"></div>
+      <div className="w-80 mx-auto border-b border-gray-300"></div>
       
       {/* 언어에 따른 이미지 표시 */}
-      <img 
-        src={contentImage} 
-        alt={imageAlt} 
-        className="max-w-full md:max-w-1/2 md:mx-8 h-auto"
-      />
+      <div className="w-full max-w-2xl mx-auto px-4">
+        <img 
+          src={contentImage} 
+          alt={imageAlt} 
+          className="max-w-full h-auto mx-auto"
+        />
+      </div>
     </div>
   );
 };
