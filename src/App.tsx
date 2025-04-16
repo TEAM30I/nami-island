@@ -14,6 +14,7 @@ import SoundTherapy from "./pages/SoundTherapy";
 import DrumCircle from "./pages/DrumCircle";
 import Reservation from "./pages/Reservation";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop"; 
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop /> {/* BrowserRouter 내부 최상단에 위치 */}
           <Navbar />
           <main className="pt-16 md:pt-20">
             <Routes>

@@ -1,6 +1,6 @@
 import { useLanguage } from "@/context/LanguageContext";
-import ko_image from "../../public/2/ko.png";
-import en_image from "../../public/2/en.png";
+import ko_image from "/2/ko.png";
+import en_image from "/2/en.png";
 
 const Yoga = () => {
   const { language } = useLanguage();

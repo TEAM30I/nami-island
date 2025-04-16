@@ -1,6 +1,6 @@
 import { useLanguage } from "@/context/LanguageContext";
-import ko_image from "../../public/4/ko.png";
-import en_image from "../../public/4/en.png";
+import ko_image from "/4/ko.png";
+import en_image from "/4/en.png";
 
 const ArtTherapy = () => {
   const { language } = useLanguage();

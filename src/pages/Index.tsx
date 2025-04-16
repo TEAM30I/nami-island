@@ -1,10 +1,10 @@
 import { useLanguage } from "@/context/LanguageContext";
-import ko_image from "../../public/1/ko.png";
-import en_image from "../../public/1/en.png";
-import intro_1 from "../../public/1/1.jpg";
-import intro_2 from "../../public/1/2.png";
-import intro_3 from "../../public/1/3.png";
-import intro_4 from "../../public/1/4.png";
+import ko_image from "/1/ko.png";
+import en_image from "/1/en.png";
+import intro_1 from "/1/1.jpg";
+import intro_2 from "/1/2.png";
+import intro_3 from "/1/3.png";
+import intro_4 from "/1/4.png";
 
 const Index = () => {
   const { language } = useLanguage();

@@ -1,6 +1,7 @@
 import { useLanguage } from "@/context/LanguageContext";
-import ko_image from "../../public/6/ko.png";
-import en_image from "../../public/6/en.jpg";
+import ko_image from "/6/ko.png";
+import en_image from "/6/en.jpg";
+
 
 const DrumCircle = () => {
   const { language } = useLanguage();

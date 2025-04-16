@@ -1,5 +1,4 @@
-
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 import { Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,6 +14,7 @@ const Navbar = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation(); // 현재 경로 정보를 가져오기 위한 useLocation
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +40,15 @@ const Navbar = () => {
     { name: t('nav.reservation'), path: '/reservation' },
   ];
 
+  // 링크 클릭 시 현재 경로와 이동할 경로가 같은 경우 스크롤 최상단으로 이동
+  const handleLinkClick = (path: string) => {
+    if (location.pathname === path) {
+      window.scrollTo(0, 0);
+    }
+    // 모바일 메뉴 사용 시, 메뉴 닫기 처리
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -48,7 +57,11 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link to="/" className="text-lg md:text-xl font-bold text-wellness-dark hover:text-wellness-accent transition-colors font-serif">
+          <Link 
+            to="/" 
+            onClick={() => handleLinkClick('/')}
+            className="text-lg md:text-xl font-bold text-wellness-dark hover:text-wellness-accent transition-colors font-serif"
+          >
             Wellness on Island
           </Link>
 
@@ -58,6 +71,7 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
+                onClick={() => handleLinkClick(link.path)}
                 className={`text-sm font-medium hover:text-wellness-accent transition-colors
                   ${link.path === '/' ? 'font-bold' : ''}
                   ${isScrolled ? 'text-wellness-dark' : 'text-wellness-dark'}`}
@@ -111,8 +125,8 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
+                  onClick={() => handleLinkClick(link.path)}
                   className="text-wellness-dark hover:text-wellness-accent transition-colors py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
                 </Link>
