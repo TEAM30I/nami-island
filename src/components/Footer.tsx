@@ -1,4 +1,3 @@
-
 import { useLanguage } from "@/context/LanguageContext";
 import { Link } from "react-router-dom";
 
@@ -46,6 +45,11 @@ const Footer = () => {
               <li>
                 <Link to="/drum-circle" className="text-gray-300 hover:text-white transition-colors">
                   {t('nav.drumCircle')}
+                </Link>
+              </li>
+              <li>
+                <Link to="/reservation" className="text-gray-300 hover:text-white transition-colors">
+                  {t('nav.reservation')}
                 </Link>
               </li>
             </ul>
