@@ -30,7 +30,7 @@ const DrumCircle = () => {
                 ? "남이섬 웰니스 이벤트 드럼서클에서 참가자들이 리듬을 만들며 함께 연주하는 장면"
                 : "Participants drumming together in a wellness drum circle event on Nami Island, creating communal rhythm"
             }
-            className="max-w-full h-auto lg:max-w-[50%] mx-auto"
+            className="object-contain w-full h-auto lg:max-w-[50%] mx-auto"
           />
         </div>
       </div>
