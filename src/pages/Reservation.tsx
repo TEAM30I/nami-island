@@ -148,6 +148,7 @@ const Reservation = () => {
         <title>{currentTexts.title}</title>
         <meta name="description" content={currentTexts.description} />
         <link rel="canonical" href="https://nami.bodhis.kr/reservation" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
       </Helmet>
       <section className="relative pb-20 mb-12 max-w-lg mx-auto">
       <img 
@@ -474,11 +475,11 @@ const Reservation = () => {
           href={reservationUrl} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="bg-[#2DB400] hover:bg-[#2DB400] text-white font-bold 
-                     text-sm sm:text-base md:text-lg lg:text-xl 
-                     py-2 px-4 sm:py-3 sm:px-6 md:py-4 md:px-8 lg:py-5 lg:px-10 
-                     rounded shadow-lg transition-all duration-200
-                     font-sans"
+          className="bg-[#2DB400] hover:bg-[#2DB400]/90 text-white font-bold 
+                     py-3 px-6 text-base md:text-lg 
+                     rounded-lg shadow-md hover:shadow-lg 
+                     transition-all duration-300
+                     font-['Segoe_UI','Malgun_Gothic','Apple_SD_Gothic_Neo',sans-serif]"
         >
           {language === 'ko' ? '예약하기' : 'Reservation'}
         </a>
