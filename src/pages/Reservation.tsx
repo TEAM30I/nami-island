@@ -149,22 +149,22 @@ const Reservation = () => {
         <meta name="description" content={currentTexts.description} />
         <link rel="canonical" href="https://nami.bodhis.kr/reservation" />
       </Helmet>
-      <section className="relative pb-20 mb-12 max-w-lg mx-auto">
-      <img 
-        src={qrImage} 
-        alt={
-          language === 'ko'
-            ? "남이섬 웰니스 프로그램 예약 페이지로 연결되는 QR 코드 이미지"
-            : "QR code used to reserve wellness programs at Nami Island retreat"
-        } 
-        className="w-full h-auto object-cover"
-      />
+      <section className="relative pb-4 mb-4 max-w-lg mx-auto">
+        <img 
+          src={qrImage} 
+          alt={
+            language === 'ko'
+              ? "남이섬 웰니스 프로그램 예약 페이지로 연결되는 QR 코드 이미지"
+              : "QR code used to reserve wellness programs at Nami Island retreat"
+          } 
+          className="w-full h-auto object-cover"
+        />
       </section>
 
       {/* Schedule Section */}
-      <section className="py-16 bg-white">
+      <section className="pt-8 pb-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
             {currentTexts.scheduleTitle}
           </h2>
           
@@ -469,16 +469,15 @@ const Reservation = () => {
         </div>
       </section>
 
-      <div className="absolute bottom-0 md:bottom-0 left-1/2 transform -translate-x-1/2">
+      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-xs px-4 z-50">
         <a 
-          href={reservationUrl} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="bg-[#2DB400] hover:bg-[#2DB400]/90 text-white font-bold 
-                     py-3 px-6 text-base md:text-lg 
-                     rounded-lg shadow-md hover:shadow-lg 
-                     transition-all duration-300
-                     font-['Segoe_UI','Malgun_Gothic','Apple_SD_Gothic_Neo',sans-serif]"
+          href={reservationUrl}
+          className="block bg-[#2DB400] hover:bg-[#2DB400]/90 text-white font-bold
+                   py-4 px-6 text-lg md:text-xl 
+                   rounded-xl shadow-lg hover:shadow-xl
+                   transition-all duration-300 active:scale-95
+                   text-center select-none
+                   font-['Noto_Sans_KR','Segoe_UI','Malgun_Gothic','Apple_SD_Gothic_Neo',sans-serif]"
         >
           {language === 'ko' ? '예약하기' : 'Reservation'}
         </a>
