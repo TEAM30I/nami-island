@@ -469,7 +469,7 @@ const Reservation = () => {
         </div>
       </section>
 
-      <div className="absolute bottom-10 md:bottom-0 left-1/2 transform -translate-x-1/2">
+      <div className="absolute bottom-0 md:bottom-0 left-1/2 transform -translate-x-1/2">
         <a 
           href={reservationUrl} 
           target="_blank" 
