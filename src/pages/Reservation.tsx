@@ -477,7 +477,8 @@ const Reservation = () => {
           className="bg-[#2DB400] hover:bg-[#2DB400] text-white font-bold 
                      text-sm sm:text-base md:text-lg lg:text-xl 
                      py-2 px-4 sm:py-3 sm:px-6 md:py-4 md:px-8 lg:py-5 lg:px-10 
-                     rounded shadow-lg transition-all duration-200"
+                     rounded shadow-lg transition-all duration-200
+                     font-sans"
         >
           {language === 'ko' ? '예약하기' : 'Reservation'}
         </a>
