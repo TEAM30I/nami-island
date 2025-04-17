@@ -1,8 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useLanguage } from "@/context/LanguageContext";
-import ko_image from "/4/ko.jpg";
-import en_image from "/4/en.jpg";
+import ko_image from "/4/ko.png";
+import en_image from "/4/en.png";
 
 const ArtTherapy = () => {
   const { language } = useLanguage();
