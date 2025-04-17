@@ -148,7 +148,6 @@ const Reservation = () => {
         <title>{currentTexts.title}</title>
         <meta name="description" content={currentTexts.description} />
         <link rel="canonical" href="https://nami.bodhis.kr/reservation" />
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
       </Helmet>
       <section className="relative pb-20 mb-12 max-w-lg mx-auto">
       <img 
