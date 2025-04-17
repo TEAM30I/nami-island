@@ -1,6 +1,7 @@
+import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { useLanguage } from "@/context/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import qrImage from "/7/QR.png";
 
 const Reservation = () => {
@@ -9,28 +10,27 @@ const Reservation = () => {
   
   const reservationUrl = "https://naminara.net/main/page/product_detail.php?pr_cate=55&pr_idx=112";
 
+  // SEO 최적화용 타이틀과 설명
+  const title = language === "ko" 
+    ? "예약 - 남이섬 웰니스 프로그램 예약" 
+    : "Reservation - Book Your Wellness Experience";
+  const description = language === "ko"
+    ? "남이섬에서 진행되는 웰니스 프로그램의 예약 페이지입니다. 상세 일정과 프로그램 정보를 확인하고 간편하게 예약하세요."
+    : "Book your wellness experience at Namisum. Check detailed schedules and program information to reserve your spot easily.";
+
   return (
     <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href="https://nami.bodhis.kr/reservation" />
+      </Helmet>
       <section className="relative pb-20 mb-12 max-w-lg mx-auto">
         <img 
             src={qrImage} 
             alt="Reservation Header" 
             className="w-full h-auto object-cover"
           />
-        {/* 예약하기 버튼 추가 */}
-        <div className="absolute bottom-10 md:bottom-0 left-1/2 transform -translate-x-1/2">
-          <a 
-            href="https://booking.naver.com/booking/12/bizes/575861/items/6587856?area=pll&lang=ko&startDateTime=2025-05-10T00%3A00%3A00%2B09%3A00&theme=place" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-[#2DB400] hover:bg-[#2DB400] text-white font-bold 
-                       text-sm sm:text-base md:text-lg lg:text-xl 
-                       py-2 px-4 sm:py-3 sm:px-6 md:py-4 md:px-8 lg:py-5 lg:px-10 
-                       rounded shadow-lg transition-all duration-200"
-          >
-            예약하기
-          </a>
-        </div>
       </section>
 
       {/* Schedule Section */}
@@ -272,14 +272,13 @@ const Reservation = () => {
               
               <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
                 <p className="text-sm text-gray-600">
-                  <strong>주의사항:</strong> 남이섬은 섬으로 되어 있어 선착장에서 배를 타고 이동해야 합니다. 선착장에 도착하신 후 승선권을 구매하여 페리를 이용해 주세요.
+                  <strong>주의사항:</strong> 남이섬은 섬으로 되어 있어 선착장에서 배를 타고 이동해야 합니다. 승선권 구매 후 페리를 이용해 주세요.
                 </p>
               </div>
             </div>
             
             <div className="md:w-1/2">
               <div className="aspect-square w-full bg-gray-200 rounded-lg overflow-hidden">
-                {/* 실제 지도 대신 iframe 사용 */}
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3156.868573643067!2d127.52541766483207!3d37.79431051634369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35637ffd04c986b9%3A0x8c96ab481db0a59a!2z64KY7J2M7ISc!5e0!3m2!1sko!2skr!4v1657286146540!5m2!1sko!2skr" 
                   width="100%" 
@@ -341,8 +340,20 @@ const Reservation = () => {
           </div>
         </div>
       </section>
-      
-      
+
+      <div className="absolute bottom-10 md:bottom-0 left-1/2 transform -translate-x-1/2">
+        <a 
+          href="https://booking.naver.com/booking/12/bizes/575861/items/6587856?area=pll&lang=ko&startDateTime=2025-05-10T00%3A00%3A00%2B09%3A00&theme=place" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="bg-[#2DB400] hover:bg-[#2DB400] text-white font-bold 
+                     text-sm sm:text-base md:text-lg lg:text-xl 
+                     py-2 px-4 sm:py-3 sm:px-6 md:py-4 md:px-8 lg:py-5 lg:px-10 
+                     rounded shadow-lg transition-all duration-200"
+        >
+          예약하기
+        </a>
+      </div>
     </>
   );
 };
