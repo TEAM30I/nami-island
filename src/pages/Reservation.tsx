@@ -5,19 +5,19 @@ import { Button } from "@/components/ui/button";
 import qrImage from "/7/QR.png";
 
 const Reservation = () => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   const [selectedDay, setSelectedDay] = useState<1 | 2 | 'all'>(1);
   
   const reservationUrl = "https://naminara.net/main/page/product_detail.php?pr_cate=55&pr_idx=112";
 
-  // 언어별 텍스트 정의
+  // 언어별 텍스트 정의 (모든 필수 속성 포함)
   const texts = {
     ko: {
       title: "예약 - 남이섬 웰니스 프로그램 예약",
       description: "남이섬에서 진행되는 웰니스 프로그램의 예약 페이지입니다. 상세 일정과 프로그램 정보를 확인하고 간편하게 예약하세요.",
       scheduleTitle: "프로그램 일정",
-      location: "위치 안내",
-      contact: "문의하기",
+      locationTitle: "위치 안내",
+      contactTitle: "문의하기",
       day1: "1일차 (5월 10일)",
       day2: "2일차 (5월 11일)",
       fullSchedule: "전체 일정",
@@ -30,14 +30,57 @@ const Reservation = () => {
         meditation: "명상",
         specialSession: "특별 세션: 웰니스 뮤직 콘서트"
       },
-      // ... 기타 텍스트 ...
+      addressTitle: "주소",
+      phoneTitle: "전화",
+      emailTitle: "이메일",
+      hoursTitle: "운영시간",
+      infoCenterTitle: "안내센터",
+      websiteTitle: "웹사이트",
+      noticeTitle: "주의사항",
+      address: "강원특별자치도 춘천시 남산면 남이섬길 1",
+      phone: "031-580-8015",
+      email: "wellness@namitour.com",
+      hours: {
+        weekday: "09:00 - 18:00 (월-금)",
+        always: "07:30 - 21:30 (연중무휴)"
+      },
+      programInquiry: "프로그램 문의",
+      tourInfo: "남이섬 관광 안내",
+      infoCenter: "031-580-8114",
+      website: "www.namisum.com",
+      publicTransportTitle: "대중교통으로 오시는 법",
+      publicTransportItems: [
+        {
+          title: "기차",
+          description: "경춘선 가평역 하차 → 남이섬 방면 버스 또는 택시 이용"
+        },
+        {
+          title: "버스",
+          description: "서울 동서울터미널에서 가평 방면 버스 → 남이섬 입구 하차"
+        },
+        {
+          title: "셔틀버스",
+          description: "서울 인사동, 명동에서 남이섬 직행 셔틀버스 운행"
+        }
+      ],
+      carTransportTitle: "자가용으로 오시는 법",
+      carTransportItems: [
+        {
+          title: "서울방면",
+          description: "경춘고속도로 → 가평IC → 남이섬 방면"
+        },
+        {
+          title: "주차",
+          description: "남이섬 선착장 주변 공영주차장 이용"
+        }
+      ]
     },
     en: {
       title: "Reservation - Book Your Wellness Experience",
       description: "Book your wellness experience at Namisum. Check detailed schedules and program information to reserve your spot easily.",
       scheduleTitle: "Program Schedule",
-      location: "Location",
-      contact: "Contact Us",
+      locationTitle: "Location",
+      contactTitle: "Contact Us",
       day1: "Day 1 (May 10)",
       day2: "Day 2 (May 11)",
       fullSchedule: "Full Schedule",
@@ -50,7 +93,50 @@ const Reservation = () => {
         meditation: "Meditation",
         specialSession: "Special Session: Wellness Music Concert"
       },
-      // ... 기타 텍스트 ...
+      addressTitle: "Address",
+      phoneTitle: "Phone",
+      emailTitle: "Email",
+      hoursTitle: "Hours",
+      infoCenterTitle: "Information Center",
+      websiteTitle: "Website",
+      noticeTitle: "Notice",
+      address: "1 Nami Island Road, Namsan-myeon, Chuncheon-si, Gangwon-do",
+      phone: "+82 31-580-8015",
+      email: "wellness@namitour.com",
+      hours: {
+        weekday: "09:00 - 18:00 (Mon-Fri)",
+        always: "07:30 - 21:30 (Everyday)"
+      },
+      programInquiry: "Program Inquiry",
+      tourInfo: "Tour Information",
+      infoCenter: "+82 31-580-8114",
+      website: "www.namisum.com",
+      publicTransportTitle: "Public Transportation",
+      publicTransportItems: [
+        {
+          title: "Train",
+          description: "Take the Gyeongchun Line to Gapyeong Station → Transfer to a bus or taxi to Nami Island"
+        },
+        {
+          title: "Bus",
+          description: "Take a bus from Dong Seoul Terminal to Gapyeong → Get off at Nami Island entrance"
+        },
+        {
+          title: "Shuttle Bus",
+          description: "Direct shuttle buses operate from Insadong and Myeongdong in Seoul"
+        }
+      ],
+      carTransportTitle: "By Car",
+      carTransportItems: [
+        {
+          title: "From Seoul",
+          description: "Take the Gyeongchun Expressway → Exit at Gapyeong IC → Follow signs to Nami Island"
+        },
+        {
+          title: "Parking",
+          description: "Use the public parking lot near the Nami Island ferry dock"
+        }
+      ]
     }
   };
 
@@ -243,7 +329,7 @@ const Reservation = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
                         {currentTexts.programNames.soundTherapy}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-gray-500"></td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -261,7 +347,7 @@ const Reservation = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
                         {currentTexts.programNames.soundTherapy}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-gray-900 font-medium">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
                         {currentTexts.programNames.drumCircle}
                       </td>
                     </tr>
@@ -278,43 +364,43 @@ const Reservation = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/2">
-              <h2 className="text-2xl font-bold mb-4">{currentTexts.location}</h2>
+              <h2 className="text-2xl font-bold mb-4">{currentTexts.locationTitle}</h2>
               <p className="mb-6">
-                <strong>남이섬</strong>
+                <strong>Nami Island</strong>
                 <br />
-                강원특별자치도 춘천시 남산면 남이섬길 1
+                <strong>{currentTexts.addressTitle}:</strong> {currentTexts.address}
                 <br />
-                <a href="tel:+82315808015" className="text-wellness-accent hover:underline">
-                  031-580-8015
+                <strong>{currentTexts.phoneTitle}:</strong> 
+                <a href={`tel:${currentTexts.phone.replace(/\D/g, '')}`} className="text-wellness-accent hover:underline ml-1">
+                  {currentTexts.phone}
                 </a>
               </p>
               
-              <h3 className="text-lg font-medium mb-2">대중교통으로 오시는 법</h3>
+              {/* 대중교통 정보 (언어별 동적 표시) */}
+              <h3 className="text-lg font-medium mb-2">{currentTexts.publicTransportTitle}</h3>
               <ul className="list-disc pl-5 mb-6 space-y-2">
-                <li>
-                  <strong>기차:</strong> 경춘선 가평역 하차 → 남이섬 방면 버스 또는 택시 이용
-                </li>
-                <li>
-                  <strong>버스:</strong> 서울 동서울터미널에서 가평 방면 버스 → 남이섬 입구 하차
-                </li>
-                <li>
-                  <strong>셔틀버스:</strong> 서울 인사동, 명동에서 남이섬 직행 셔틀버스 운행
-                </li>
+                {currentTexts.publicTransportItems.map((item, index) => (
+                  <li key={index}>
+                    <strong>{item.title}:</strong> {item.description}
+                  </li>
+                ))}
               </ul>
               
-              <h3 className="text-lg font-medium mb-2">자가용으로 오시는 법</h3>
+              {/* 자가용 정보 (언어별 동적 표시) */}
+              <h3 className="text-lg font-medium mb-2">{currentTexts.carTransportTitle}</h3>
               <ul className="list-disc pl-5 mb-6 space-y-2">
-                <li>
-                  <strong>서울방면:</strong> 경춘고속도로 → 가평IC → 남이섬 방면
-                </li>
-                <li>
-                  <strong>주차:</strong> 남이섬 선착장 주변 공영주차장 이용
-                </li>
+                {currentTexts.carTransportItems.map((item, index) => (
+                  <li key={index}>
+                    <strong>{item.title}:</strong> {item.description}
+                  </li>
+                ))}
               </ul>
               
               <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
                 <p className="text-sm text-gray-600">
-                  <strong>주의사항:</strong> 남이섬은 섬으로 되어 있어 선착장에서 배를 타고 이동해야 합니다. 승선권 구매 후 페리를 이용해 주세요.
+                  <strong>{currentTexts.noticeTitle}:</strong> {language === 'ko' 
+                    ? "남이섬은 섬으로 되어 있어 선착장에서 배를 타고 이동해야 합니다. 승선권 구매 후 페리를 이용해 주세요."
+                    : "Nami Island is an island, so you must take a ferry from the dock. Please purchase a ferry ticket before boarding."}
                 </p>
               </div>
             </div>
@@ -340,42 +426,42 @@ const Reservation = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-            {currentTexts.contact}
+            {currentTexts.contactTitle}
           </h2>
           
           <div className="max-w-2xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-medium mb-4">프로그램 문의</h3>
+                <h3 className="text-lg font-medium mb-4">{currentTexts.programInquiry}</h3>
                 <p className="mb-2">
-                  <strong>전화:</strong> 031-580-8015
+                  <strong>{language === 'ko' ? '전화' : 'Phone'}:</strong> {currentTexts.phone}
                 </p>
                 <p className="mb-2">
-                  <strong>이메일:</strong> wellness@namitour.com
+                  <strong>{language === 'ko' ? '이메일' : 'Email'}:</strong> {currentTexts.email}
                 </p>
                 <p className="mb-2">
-                  <strong>운영시간:</strong> 09:00 - 18:00 (월-금)
+                  <strong>{language === 'ko' ? '운영시간' : 'Hours'}:</strong> {currentTexts.hours.weekday}
                 </p>
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-medium mb-4">남이섬 관광 안내</h3>
+                <h3 className="text-lg font-medium mb-4">{currentTexts.tourInfo}</h3>
                 <p className="mb-2">
-                  <strong>안내센터:</strong> 031-580-8114
+                  <strong>{language === 'ko' ? '안내센터' : 'Information Center'}:</strong> {currentTexts.infoCenter}
                 </p>
                 <p className="mb-2">
-                  <strong>웹사이트:</strong>
+                  <strong>{language === 'ko' ? '웹사이트' : 'Website'}:</strong>
                   <a 
-                    href="http://www.namisum.com" 
+                    href={`http://${currentTexts.website}`} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-wellness-accent hover:underline"
+                    className="text-wellness-accent hover:underline ml-1"
                   >
-                    www.namisum.com
+                    {currentTexts.website}
                   </a>
                 </p>
                 <p className="mb-2">
-                  <strong>운영시간:</strong> 07:30 - 21:30 (연중무휴)
+                  <strong>{language === 'ko' ? '운영시간' : 'Hours'}:</strong> {currentTexts.hours.always}
                 </p>
               </div>
             </div>
