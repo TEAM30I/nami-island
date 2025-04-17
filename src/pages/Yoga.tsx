@@ -23,20 +23,22 @@ const Yoga = () => {
         <link rel="canonical" href="https://nami.bodhis.kr/yoga" />
       </Helmet>
       <main className="max-w-[80%] mx-auto">
-      <img 
-          src={language === 'ko' ? ko_image : en_image} 
-          alt={
-            language === 'ko'
-              ? "남이섬 호숫가에서 요가 동작을 수행하는 참가자들의 평화로운 모습"
-              : "Participants practicing yoga by the lake on Nami Island, embodying wellness and mindfulness"
-          }
-          title={
-            language === 'ko'
-              ? "남이섬 요가: 몸과 마음의 균형을 위한 웰니스 경험"
-              : "Nami Island Yoga: A wellness experience for body and mind balance"
-          }
-          className="max-w-full h-auto"
-        />
+        <div className="flex justify-center">
+          <img 
+            src={language === 'ko' ? ko_image : en_image} 
+            alt={
+              language === 'ko'
+                ? "남이섬 호숫가에서 요가 동작을 수행하는 참가자들의 평화로운 모습"
+                : "Participants practicing yoga by the lake on Nami Island, embodying wellness and mindfulness"
+            }
+            title={
+              language === 'ko'
+                ? "남이섬 요가: 몸과 마음의 균형을 위한 웰니스 경험"
+                : "Nami Island Yoga: A wellness experience for body and mind balance"
+            }
+            className="max-w-full h-auto lg:max-w-[50%]"
+          />
+        </div>
       </main>
     </>
   );

@@ -21,17 +21,19 @@ const SoundTherapy = () => {
         <meta name="description" content={description} />
         <link rel="canonical" href="https://nami.bodhis.kr/sound-therapy" />
       </Helmet>
-      <main className="max-w-[80%] mx-auto">
-      <img 
-        src={language === 'ko' ? ko_image : en_image} 
-        alt={
-          language === 'ko'
-            ? "남이섬 웰니스 프로그램 사운드 테라피 세션에서 치임 볼과 힐링 사운드를 체험하는 모습"
-            : "Guests experiencing sound therapy with chime bowls and healing frequencies during a wellness session on Nami Island"
-        }
-        className="max-w-full h-auto"
-      />
-      </main>
+      <div className="flex justify-center">
+        <div className="max-w-[80%] mx-auto">
+          <img 
+            src={language === 'ko' ? ko_image : en_image} 
+            alt={
+              language === 'ko'
+                ? "남이섬 웰니스 프로그램 사운드 테라피 세션에서 치임 볼과 힐링 사운드를 체험하는 모습"
+                : "Guests experiencing sound therapy with chime bowls and healing frequencies during a wellness session on Nami Island"
+            }
+            className="max-w-full h-auto lg:max-w-[50%] mx-auto"
+          />
+        </div>
+      </div>
     </>
   );
 };

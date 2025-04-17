@@ -10,34 +10,76 @@ const Reservation = () => {
   
   const reservationUrl = "https://naminara.net/main/page/product_detail.php?pr_cate=55&pr_idx=112";
 
-  // SEO 최적화용 타이틀과 설명
-  const title = language === "ko" 
-    ? "예약 - 남이섬 웰니스 프로그램 예약" 
-    : "Reservation - Book Your Wellness Experience";
-  const description = language === "ko"
-    ? "남이섬에서 진행되는 웰니스 프로그램의 예약 페이지입니다. 상세 일정과 프로그램 정보를 확인하고 간편하게 예약하세요."
-    : "Book your wellness experience at Namisum. Check detailed schedules and program information to reserve your spot easily.";
+  // 언어별 텍스트 정의
+  const texts = {
+    ko: {
+      title: "예약 - 남이섬 웰니스 프로그램 예약",
+      description: "남이섬에서 진행되는 웰니스 프로그램의 예약 페이지입니다. 상세 일정과 프로그램 정보를 확인하고 간편하게 예약하세요.",
+      scheduleTitle: "프로그램 일정",
+      location: "위치 안내",
+      contact: "문의하기",
+      day1: "1일차 (5월 10일)",
+      day2: "2일차 (5월 11일)",
+      fullSchedule: "전체 일정",
+      programNames: {
+        yoga: "요가",
+        ayurveda: "아유르베다",
+        artTherapy: "아트 테라피",
+        soundTherapy: "사운드 테라피",
+        drumCircle: "드럼서클",
+        meditation: "명상",
+        specialSession: "특별 세션: 웰니스 뮤직 콘서트"
+      },
+      // ... 기타 텍스트 ...
+    },
+    en: {
+      title: "Reservation - Book Your Wellness Experience",
+      description: "Book your wellness experience at Namisum. Check detailed schedules and program information to reserve your spot easily.",
+      scheduleTitle: "Program Schedule",
+      location: "Location",
+      contact: "Contact Us",
+      day1: "Day 1 (May 10)",
+      day2: "Day 2 (May 11)",
+      fullSchedule: "Full Schedule",
+      programNames: {
+        yoga: "Yoga",
+        ayurveda: "Ayurveda",
+        artTherapy: "Art Therapy",
+        soundTherapy: "Sound Therapy",
+        drumCircle: "Drum Circle",
+        meditation: "Meditation",
+        specialSession: "Special Session: Wellness Music Concert"
+      },
+      // ... 기타 텍스트 ...
+    }
+  };
+
+  const currentTexts = language === 'ko' ? texts.ko : texts.en;
 
   return (
     <>
       <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
+        <title>{currentTexts.title}</title>
+        <meta name="description" content={currentTexts.description} />
         <link rel="canonical" href="https://nami.bodhis.kr/reservation" />
       </Helmet>
       <section className="relative pb-20 mb-12 max-w-lg mx-auto">
-        <img 
-            src={qrImage} 
-            alt="Reservation Header" 
-            className="w-full h-auto object-cover"
-          />
+      <img 
+        src={qrImage} 
+        alt={
+          language === 'ko'
+            ? "남이섬 웰니스 프로그램 예약 페이지로 연결되는 QR 코드 이미지"
+            : "QR code used to reserve wellness programs at Nami Island retreat"
+        } 
+        className="w-full h-auto object-cover"
+      />
       </section>
 
       {/* Schedule Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-            {t('reservation.scheduleTitle')}
+            {currentTexts.scheduleTitle}
           </h2>
           
           <div className="flex justify-center mb-8">
@@ -49,7 +91,7 @@ const Reservation = () => {
                 }`}
                 onClick={() => setSelectedDay(1)}
               >
-                Day 1 (5월 10일)
+                {currentTexts.day1}
               </button>
               <button
                 type="button"
@@ -58,7 +100,7 @@ const Reservation = () => {
                 }`}
                 onClick={() => setSelectedDay(2)}
               >
-                Day 2 (5월 11일)
+                {currentTexts.day2}
               </button>
               <button
                 type="button"
@@ -67,7 +109,7 @@ const Reservation = () => {
                 }`}
                 onClick={() => setSelectedDay('all')}
               >
-                Full Schedule
+                {currentTexts.fullSchedule}
               </button>
             </div>
           </div>
@@ -78,11 +120,11 @@ const Reservation = () => {
               <thead className="bg-gray-50">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Time</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Yoga</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ayurveda</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Art Therapy</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sound Therapy</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Drum Circle</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{currentTexts.programNames.yoga}</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{currentTexts.programNames.ayurveda}</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{currentTexts.programNames.artTherapy}</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{currentTexts.programNames.soundTherapy}</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{currentTexts.programNames.drumCircle}</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
@@ -90,7 +132,7 @@ const Reservation = () => {
                   <>
                     <tr className="bg-gray-100">
                       <td colSpan={6} className="px-6 py-2 text-sm font-medium">
-                        Day 1 (5월 10일)
+                        {currentTexts.day1}
                       </td>
                     </tr>
                     <tr>
@@ -102,7 +144,7 @@ const Reservation = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        드럼서클
+                        {currentTexts.programNames.drumCircle}
                       </td>
                     </tr>
                     <tr>
@@ -110,19 +152,19 @@ const Reservation = () => {
                         16:00-17:30
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        요가
+                        {currentTexts.programNames.yoga}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        아유르베다
+                        {currentTexts.programNames.ayurveda}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        아트 테라피
+                        {currentTexts.programNames.artTherapy}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        사운드 테라피
+                        {currentTexts.programNames.soundTherapy}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        드럼서클
+                        {currentTexts.programNames.drumCircle}
                       </td>
                     </tr>
                     <tr>
@@ -130,16 +172,16 @@ const Reservation = () => {
                         18:00-19:30
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        요가
+                        {currentTexts.programNames.yoga}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        아유르베다
+                        {currentTexts.programNames.ayurveda}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        아트 테라피
+                        {currentTexts.programNames.artTherapy}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        사운드 테라피
+                        {currentTexts.programNames.soundTherapy}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
                     </tr>
@@ -148,7 +190,7 @@ const Reservation = () => {
                         20:00-21:00
                       </td>
                       <td colSpan={5} className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium text-center">
-                        Special Session: 웰니스 뮤직 콘서트
+                        {currentTexts.programNames.specialSession}
                       </td>
                     </tr>
                   </>
@@ -158,7 +200,7 @@ const Reservation = () => {
                   <>
                     <tr className="bg-gray-100">
                       <td colSpan={6} className="px-6 py-2 text-sm font-medium">
-                        Day 2 (5월 11일)
+                        {currentTexts.day2}
                       </td>
                     </tr>
                     <tr>
@@ -166,7 +208,7 @@ const Reservation = () => {
                         07:00-08:00
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        명상
+                        {currentTexts.programNames.meditation}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
@@ -182,7 +224,7 @@ const Reservation = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        드럼서클
+                        {currentTexts.programNames.drumCircle}
                       </td>
                     </tr>
                     <tr>
@@ -190,16 +232,16 @@ const Reservation = () => {
                         11:00-12:30
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        요가
+                        {currentTexts.programNames.yoga}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        아유르베다
+                        {currentTexts.programNames.ayurveda}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        아트 테라피
+                        {currentTexts.programNames.artTherapy}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        사운드 테라피
+                        {currentTexts.programNames.soundTherapy}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-gray-500"></td>
                     </tr>
@@ -208,19 +250,19 @@ const Reservation = () => {
                         13:00-14:30
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        요가
+                        {currentTexts.programNames.yoga}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        아유르베다
+                        {currentTexts.programNames.ayurveda}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        아트 테라피
+                        {currentTexts.programNames.artTherapy}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                        사운드 테라피
+                        {currentTexts.programNames.soundTherapy}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-gray-900 font-medium">
-                        드럼서클
+                        {currentTexts.programNames.drumCircle}
                       </td>
                     </tr>
                   </>
@@ -236,7 +278,7 @@ const Reservation = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/2">
-              <h2 className="text-2xl font-bold mb-4">{t('reservation.location')}</h2>
+              <h2 className="text-2xl font-bold mb-4">{currentTexts.location}</h2>
               <p className="mb-6">
                 <strong>남이섬</strong>
                 <br />
@@ -298,7 +340,7 @@ const Reservation = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-            {t('nav.contact')}
+            {currentTexts.contact}
           </h2>
           
           <div className="max-w-2xl mx-auto">
@@ -343,7 +385,7 @@ const Reservation = () => {
 
       <div className="absolute bottom-10 md:bottom-0 left-1/2 transform -translate-x-1/2">
         <a 
-          href="https://booking.naver.com/booking/12/bizes/575861/items/6587856?area=pll&lang=ko&startDateTime=2025-05-10T00%3A00%3A00%2B09%3A00&theme=place" 
+          href={reservationUrl} 
           target="_blank" 
           rel="noopener noreferrer"
           className="bg-[#2DB400] hover:bg-[#2DB400] text-white font-bold 
@@ -351,9 +393,10 @@ const Reservation = () => {
                      py-2 px-4 sm:py-3 sm:px-6 md:py-4 md:px-8 lg:py-5 lg:px-10 
                      rounded shadow-lg transition-all duration-200"
         >
-          예약하기
+          {language === 'ko' ? '예약하기' : 'Reservation'}
         </a>
       </div>
+
     </>
   );
 };

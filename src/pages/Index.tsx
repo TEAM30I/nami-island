@@ -23,7 +23,7 @@ const Index = () => {
           <img 
             src={intro_1} 
             alt="소개" 
-            className="max-w-full h-auto mx-auto backdrop-blur-sm"
+            className="max-w-full h-auto mx-auto backdrop-blur-sm lg:max-w-[50%]"
           />
           <div className="absolute bottom-10 md:bottom-15 left-1/2 transform -translate-x-1/2">
             <a 
@@ -35,7 +35,7 @@ const Index = () => {
                          py-2 px-4 sm:py-3 sm:px-6 md:py-4 md:px-8 lg:py-5 lg:px-10 
                          rounded shadow-lg transition-all duration-200"
             >
-              예약하기
+              {language === 'ko' ? '예약하기' : 'Reservation'}
             </a>
           </div>
         </div>
@@ -43,21 +43,21 @@ const Index = () => {
           <img 
             src={intro_2} 
             alt="소개" 
-            className="max-w-full h-auto mx-auto backdrop-blur-sm"
+            className="max-w-full h-auto mx-auto backdrop-blur-sm lg:max-w-[50%]"
           />
         </div>
         <div className="w-full max-w-6xl mx-auto">
           <img 
             src={intro_3} 
             alt="소개" 
-            className="max-w-full h-auto mx-auto backdrop-blur-sm"
+            className="max-w-full h-auto mx-auto backdrop-blur-sm lg:max-w-[50%]"
           />
         </div>
         <div className="w-full max-w-6xl mx-auto">
           <img 
             src={intro_4} 
             alt="소개" 
-            className="max-w-full h-auto mx-auto backdrop-blur-sm"
+            className="max-w-full h-auto mx-auto backdrop-blur-sm lg:max-w-[50%]"
           />
         </div>
       </div>

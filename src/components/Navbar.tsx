@@ -82,24 +82,29 @@ const Navbar = () => {
           </nav>
 
           <div className="flex items-center">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-wellness-dark">
-                  <Globe className="h-5 w-5" />
-                  <span className="sr-only">Toggle language</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setLanguage('ko')} className={language === 'ko' ? 'bg-muted' : ''}>
-                  한국어
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('en')} className={language === 'en' ? 'bg-muted' : ''}>
-                  English
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <div className="flex items-center mr-4">
+              <span className="text-sm font-medium text-wellness-dark mr-2">
+                {language === 'ko' ? '언어' : 'Language'}
+              </span>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" className="text-wellness-dark">
+                    <Globe className="h-5 w-5" />
+                    <span className="sr-only">Toggle language</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem onClick={() => setLanguage('ko')} className={language === 'ko' ? 'bg-muted' : ''}>
+                    한국어
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage('en')} className={language === 'en' ? 'bg-muted' : ''}>
+                    English
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
 
-            {/* Mobile Menu Button */}
+            {/* 모바일 메뉴 버튼 - 아이콘 추가 */}
             <button
               className="ml-2 md:hidden text-wellness-dark"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -114,27 +119,27 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t">
-          <div className="container mx-auto px-4 py-3">
-            <nav className="flex flex-col space-y-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => handleLinkClick(link.path)}
-                  className="text-wellness-dark hover:text-wellness-accent transition-colors py-2"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-white border-t">
+            <div className="container mx-auto px-4 py-3">
+              <nav className="flex flex-col space-y-3">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => handleLinkClick(link.path)}
+                    className="text-wellness-dark hover:text-wellness-accent transition-colors py-2"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </nav>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </header>
   );
 };
