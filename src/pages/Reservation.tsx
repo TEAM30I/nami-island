@@ -8,7 +8,7 @@ const Reservation = () => {
   const { language } = useLanguage();
   const [selectedDay, setSelectedDay] = useState<1 | 2 | 'all'>(1);
   
-  const reservationUrl = "https://naminara.net/main/page/product_detail.php?pr_cate=55&pr_idx=112";
+  const reservationUrl = "https://booking.naver.com/booking/12/bizes/575861/items/6587856?area=pll&lang=ko&startDateTime=2025-05-10T00%3A00%3A00%2B09%3A00&theme=place";
 
   // 언어별 텍스트 정의 (모든 필수 속성 포함)
   const texts = {
