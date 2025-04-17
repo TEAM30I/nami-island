@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { useLanguage } from "@/context/LanguageContext";
 import ko_image from "/6/ko.png";
-import en_image from "/6/en.jpg";
+import en_image from "/6/en.png";
 
 const DrumCircle = () => {
   const { language } = useLanguage();
